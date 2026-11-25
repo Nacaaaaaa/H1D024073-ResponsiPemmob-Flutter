@@ -1,9 +1,9 @@
 # Identitas Mahasiswa
 
-Nama: Nalendra Wicaksana
-NIM: H1D024073
-Shift KRS: E
-Shift Baru: D
+- Nama: Nalendra Wicaksana
+- NIM: H1D024073
+- Shift KRS: E
+- Shift Baru: D
 
 # Aplikasi Cuaca Flutter (MVVM + Open-Meteo API)
 
@@ -60,4 +60,4 @@ flutter run
 
 ## 5. Demo Aplikasi
 
-| ![Demo Aplikasi](weather_app_demo.gif)
+![Demo Aplikasi](weather_app_demo.gif)
