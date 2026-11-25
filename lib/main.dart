@@ -1,16 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'theme/app_theme.dart';
+import 'viewmodels/search_viewmodel.dart';
+import 'viewmodels/weather_viewmodel.dart';
+import 'views/home_screen.dart';
 
 void main() {
-  runApp(const MainApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const WeatherApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class WeatherApp extends StatelessWidget {
+  const WeatherApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(body: Center(child: Text('Hello World!'))),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => WeatherViewModel()),
+        ChangeNotifierProvider(create: (_) => SearchViewModel()),
+      ],
+      child: MaterialApp(
+        title: 'Responsi Cuaca MVVM',
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.lightTheme,
+        home: const HomeScreen(),
+      ),
     );
   }
 }
