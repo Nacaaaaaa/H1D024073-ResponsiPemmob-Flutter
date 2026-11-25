@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
+import 'package:flutter/foundation.dart';
 
 import '../models/location_model.dart';
 import '../models/weather_model.dart';
@@ -39,6 +40,8 @@ class WeatherApiService {
           );
 
       if (response.statusCode == 200) {
+        debugPrint('GET URL: $uri');
+        debugPrint('API RESPONSE: ${response.body}');
         final decoded = jsonDecode(response.body) as Map<String, dynamic>;
         return WeatherResponse.fromJson(decoded);
       } else {
@@ -75,6 +78,8 @@ class WeatherApiService {
           );
 
       if (response.statusCode == 200) {
+        debugPrint('GET URL: $uri');
+        debugPrint('API RESPONSE: ${response.body}');
         final decoded = jsonDecode(response.body) as Map<String, dynamic>;
         final results = decoded['results'] as List<dynamic>?;
         if (results == null || results.isEmpty) {
